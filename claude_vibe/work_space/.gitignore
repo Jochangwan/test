@@ -1,0 +1,23 @@
+# 의존성
+node_modules/
+
+# OS 파일
+.DS_Store
+Thumbs.db
+
+# IDE 설정
+.vscode/
+.idea/
+
+# 빌드 출력
+dist/
+build/
+
+# 환경 변수 및 로그
+.env
+*.log
+
+# 임시 파일
+*.tmp
+*.swp
+*~

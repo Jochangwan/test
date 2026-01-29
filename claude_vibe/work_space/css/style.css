@@ -1,0 +1,210 @@
+/* ========================================
+   전역 스타일 및 리셋
+   ======================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 부드러운 스크롤 */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+    line-height: 1.6;
+    color: #1F2937;
+}
+
+
+/* ========================================
+   네비게이션 바 스타일
+   ======================================== */
+
+#navbar {
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+
+/* ========================================
+   모바일 메뉴 애니메이션
+   ======================================== */
+
+#mobile-menu {
+    animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+#mobile-menu.hidden {
+    animation: slideUp 0.3s ease-out;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+}
+
+
+/* ========================================
+   커스텀 스크롤바
+   ======================================== */
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #F9FAFB;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #3B82F6;
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #2563EB;
+}
+
+
+/* ========================================
+   접근성 개선 - 포커스 스타일
+   ======================================== */
+
+a:focus,
+button:focus {
+    outline: 2px solid #3B82F6;
+    outline-offset: 2px;
+}
+
+a:focus:not(:focus-visible),
+button:focus:not(:focus-visible) {
+    outline: none;
+}
+
+
+/* ========================================
+   이미지 최적화
+   ======================================== */
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+
+/* ========================================
+   섹션 전환 애니메이션 (추가 최적화용)
+   ======================================== */
+
+section {
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out;
+}
+
+
+/* ========================================
+   버튼 호버 효과 강화
+   ======================================== */
+
+.btn-primary {
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(59, 130, 246, 0.3);
+}
+
+
+/* ========================================
+   프로젝트 카드 호버 효과
+   ======================================== */
+
+.project-card {
+    transition: all 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+}
+
+
+/* ========================================
+   타임라인 반응형 조정
+   ======================================== */
+
+@media (max-width: 768px) {
+    .timeline {
+        padding-left: 1rem;
+    }
+}
+
+
+/* ========================================
+   다크 모드 대응 (선택 사항)
+   ======================================== */
+
+@media (prefers-color-scheme: dark) {
+    /* 다크 모드 스타일은 Phase 5에서 추가 예정 */
+}
+
+
+/* ========================================
+   프린트 스타일 최적화
+   ======================================== */
+
+@media print {
+    #navbar,
+    #mobile-menu-toggle {
+        display: none;
+    }
+
+    section {
+        page-break-inside: avoid;
+    }
+
+    a {
+        text-decoration: underline;
+    }
+
+    a[href]:after {
+        content: " (" attr(href) ")";
+    }
+}
+
+
+/* ========================================
+   애니메이션 성능 최적화
+   ======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
