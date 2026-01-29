@@ -15,8 +15,11 @@ html {
 
 body {
     font-family: 'Noto Sans KR', sans-serif;
-    line-height: 1.6;
-    color: #1F2937;
+    line-height: 1.7;
+    color: #000000;
+    background-color: #ffffff;
+    font-weight: 300;
+    letter-spacing: 0.02em;
 }
 
 
@@ -25,8 +28,13 @@ body {
    ======================================== */
 
 #navbar {
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+#navbar.shadow-lg {
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
 }
 
 
@@ -35,13 +43,13 @@ body {
    ======================================== */
 
 #mobile-menu {
-    animation: slideDown 0.3s ease-out;
+    animation: slideDown 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 @keyframes slideDown {
     from {
         opacity: 0;
-        transform: translateY(-10px);
+        transform: translateY(-15px);
     }
     to {
         opacity: 1;
@@ -50,40 +58,45 @@ body {
 }
 
 #mobile-menu.hidden {
-    animation: slideUp 0.3s ease-out;
-}
-
-@keyframes slideUp {
-    from {
-        opacity: 1;
-        transform: translateY(0);
-    }
-    to {
-        opacity: 0;
-        transform: translateY(-10px);
-    }
+    display: none;
 }
 
 
 /* ========================================
-   커스텀 스크롤바
+   커스텀 스크롤바 (espoir 스타일)
    ======================================== */
 
 ::-webkit-scrollbar {
-    width: 10px;
+    width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-    background: #F9FAFB;
+    background: #FAFAFA;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #3B82F6;
-    border-radius: 5px;
+    background: #C9A961;
+    border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: #2563EB;
+    background: #B89850;
+}
+
+
+/* ========================================
+   타이포그래피 개선
+   ======================================== */
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+}
+
+p {
+    font-weight: 300;
+    letter-spacing: 0.01em;
 }
 
 
@@ -93,8 +106,8 @@ body {
 
 a:focus,
 button:focus {
-    outline: 2px solid #3B82F6;
-    outline-offset: 2px;
+    outline: 2px solid #C9A961;
+    outline-offset: 3px;
 }
 
 a:focus:not(:focus-visible),
@@ -115,50 +128,173 @@ img {
 
 
 /* ========================================
-   섹션 전환 애니메이션 (추가 최적화용)
+   섹션 타이틀 밑줄 애니메이션
    ======================================== */
 
-section {
-    opacity: 1;
-    transition: opacity 0.3s ease-in-out;
+.section-title-underline {
+    width: 0;
+    height: 2px;
+    background: #C9A961;
+    transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.section-title-underline.active {
+    width: 80px;
 }
 
 
 /* ========================================
-   버튼 호버 효과 강화
+   버튼 호버 효과 강화 (espoir 스타일)
    ======================================== */
 
 .btn-primary {
-    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .btn-primary:hover {
     transform: translateY(-2px);
-    box-shadow: 0 10px 20px rgba(59, 130, 246, 0.3);
+    box-shadow: 0 10px 30px rgba(201, 169, 97, 0.3);
+}
+
+.btn-primary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
+}
+
+.btn-primary:hover::before {
+    left: 100%;
 }
 
 
 /* ========================================
-   프로젝트 카드 호버 효과
+   카드 호버 효과
    ======================================== */
 
-.project-card {
-    transition: all 0.3s ease;
+.card-hover {
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.project-card:hover {
-    transform: translateY(-5px);
+.card-hover:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
 }
 
 
 /* ========================================
-   타임라인 반응형 조정
+   프로젝트 카드 오버레이 효과
    ======================================== */
 
-@media (max-width: 768px) {
-    .timeline {
-        padding-left: 1rem;
+.project-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(26, 26, 26, 0.9), rgba(139, 115, 85, 0.9));
+    opacity: 0;
+    transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.project-card:hover .project-overlay {
+    opacity: 1;
+}
+
+
+/* ========================================
+   Hero 섹션 배경 애니메이션
+   ======================================== */
+
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
     }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.hero-gradient {
+    background: linear-gradient(-45deg, #F5F5F5, #FFFFFF, #FAFAFA, #F8F8F8);
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
+}
+
+
+/* ========================================
+   텍스트 애니메이션 (타이핑 효과 준비)
+   ======================================== */
+
+.fade-in-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+                transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.fade-in-up.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* ========================================
+   네비게이션 링크 active 상태
+   ======================================== */
+
+.nav-link {
+    position: relative;
+    padding-bottom: 2px;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: #1a1a1a;
+    transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nav-link:hover::after,
+.nav-link.text-primary::after {
+    width: 100%;
+    background: #C9A961;
+}
+
+
+/* ========================================
+   스킬 태그 호버 효과
+   ======================================== */
+
+.skill-tag {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.skill-tag:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(201, 169, 97, 0.2);
+}
+
+
+/* ========================================
+   섹션 구분선
+   ======================================== */
+
+.section-divider {
+    width: 80px;
+    height: 1px;
+    background: linear-gradient(to right, transparent, #C9A961, transparent);
+    margin: 0 auto;
 }
 
 
@@ -167,7 +303,7 @@ section {
    ======================================== */
 
 @media (prefers-color-scheme: dark) {
-    /* 다크 모드 스타일은 Phase 5에서 추가 예정 */
+    /* 다크 모드는 현재 미지원 - 향후 추가 가능 */
 }
 
 
@@ -177,20 +313,43 @@ section {
 
 @media print {
     #navbar,
-    #mobile-menu-toggle {
+    #mobile-menu-toggle,
+    .btn-primary,
+    footer {
         display: none;
     }
 
     section {
         page-break-inside: avoid;
+        padding: 1rem 0 !important;
+    }
+
+    body {
+        font-size: 12pt;
+        line-height: 1.5;
+    }
+
+    h1 {
+        font-size: 24pt;
+    }
+
+    h2 {
+        font-size: 20pt;
+    }
+
+    h3 {
+        font-size: 16pt;
     }
 
     a {
-        text-decoration: underline;
+        text-decoration: none;
+        color: #000000;
     }
 
-    a[href]:after {
+    a[href^="http"]:after {
         content: " (" attr(href) ")";
+        font-size: 10pt;
+        color: #666666;
     }
 }
 
@@ -206,5 +365,102 @@ section {
         animation-duration: 0.01ms !important;
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
     }
+}
+
+
+/* ========================================
+   반응형 타이포그래피 미세 조정
+   ======================================== */
+
+@media (max-width: 768px) {
+    body {
+        font-size: 15px;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
+
+    h3 {
+        font-size: 1.5rem;
+    }
+}
+
+@media (min-width: 1920px) {
+    body {
+        font-size: 18px;
+    }
+}
+
+
+/* ========================================
+   로딩 상태 (선택 사항)
+   ======================================== */
+
+.loading {
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+
+/* ========================================
+   커스텀 선택 영역 스타일
+   ======================================== */
+
+::selection {
+    background-color: #C9A961;
+    color: #FFFFFF;
+}
+
+::-moz-selection {
+    background-color: #C9A961;
+    color: #FFFFFF;
+}
+
+
+/* ========================================
+   espoir 스타일 특수 효과
+   ======================================== */
+
+/* 골드 그라데이션 텍스트 */
+.gold-gradient-text {
+    background: linear-gradient(135deg, #C9A961, #D4B76A, #B89850);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* 럭셔리 박스 그림자 */
+.luxury-shadow {
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08),
+                0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.luxury-shadow:hover {
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12),
+                0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+
+/* ========================================
+   스크롤 다운 힌트 애니메이션
+   ======================================== */
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.animate-bounce {
+    animation: bounce 2s infinite;
 }

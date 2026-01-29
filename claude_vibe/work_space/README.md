@@ -1,13 +1,27 @@
-# 개발자 웹 이력서 (Developer Portfolio)
+# 조창완 - 개발자 웹 이력서
 
-> 반응형 디자인을 적용한 프론트엔드 개발자 웹 이력서 프로젝트입니다.
+> **espoir.com** 스타일을 참조한 모던 럭셔리 디자인의 프론트엔드 개발자 웹 이력서입니다.
 
 ## 📋 프로젝트 개요
 
-HTML5, CSS3, JavaScript(Vanilla), TailwindCSS를 사용하여 제작한 반응형 개발자 웹 이력서입니다.
-프레임워크 없이 순수 JavaScript로 구현하여 빠르고 가볍게 동작합니다.
+HTML5, CSS3, JavaScript(Vanilla), TailwindCSS를 사용하여 제작한 프리미엄 스타일의 개발자 웹 이력서입니다.
+프레임워크 없이 순수 JavaScript로 구현하여 빠르고 가볍게 동작하며, espoir.com의 미니멀하고 세련된 디자인을 적용했습니다.
 
-**현재 진행 상태**: Phase 1-2 완료 (프로젝트 초기 설정 + 기본 레이아웃)
+**디자인 컨셉**: 모던 럭셔리 (Modern Luxury)
+**현재 진행 상태**: Phase 1-2 완료 + espoir 스타일 적용
+
+---
+
+## ✨ 디자인 특징 (espoir 스타일)
+
+이 웹 이력서는 **espoir.com**의 디자인 철학을 참조하여 제작되었습니다:
+
+- **미니멀한 중성 톤**: 흰색, 검은색, 회색 계열의 깔끔한 색상 조합
+- **럭셔리 포인트**: 골드(#C9A961)와 브론즈(#8B7355) 액센트
+- **세련된 타이포그래피**: Playfair Display (세리프) + Noto Sans KR 조합
+- **큰 여백과 공간감**: 프리미엄한 느낌을 위한 충분한 패딩
+- **우아한 애니메이션**: 부드러운 호버 효과와 트랜지션
+- **모던 레이아웃**: 깔끔한 그리드와 카드 디자인
 
 ---
 
@@ -152,17 +166,19 @@ python -m http.server 8000
 
 ---
 
-## 🎨 색상 팔레트
+## 🎨 색상 팔레트 (espoir 스타일)
 
-TailwindCSS 커스텀 색상:
+TailwindCSS 커스텀 색상 - 미니멀 중성 톤 + 골드 포인트:
 
 | 색상 이름   | Hex 코드   | 용도                        |
 |-----------|-----------|---------------------------|
-| Primary   | `#3B82F6` | 주요 강조 색상 (Blue)        |
-| Secondary | `#10B981` | 보조 강조 색상 (Green)       |
-| Accent    | `#F59E0B` | 액센트 색상 (Amber)          |
-| BgLight   | `#F9FAFB` | 배경색 (Light Gray)         |
-| TextDark  | `#1F2937` | 텍스트 색상 (Dark Gray)      |
+| Primary   | `#1a1a1a` | 주요 색상 (블랙)             |
+| Secondary | `#C9A961` | 보조 강조 색상 (골드)         |
+| Accent    | `#8B7355` | 액센트 색상 (브론즈)          |
+| BgLight   | `#FAFAFA` | 배경색 (오프화이트)           |
+| TextDark  | `#000000` | 텍스트 색상 (순검정)          |
+| TextGray  | `#666666` | 중간 회색                    |
+| LightGray | `#F5F5F5` | 밝은 회색                    |
 
 ---
 
@@ -219,11 +235,11 @@ TailwindCSS 커스텀 색상:
 
 ## 👤 작성자
 
-**홍길동** - Frontend Developer
+**조창완 (Changwan Cho)** - Frontend Developer
 
 - GitHub: [https://github.com](https://github.com)
 - LinkedIn: [https://linkedin.com](https://linkedin.com)
-- Email: hong@example.com
+- Email: changwan@example.com
 
 ---
 
