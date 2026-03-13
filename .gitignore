@@ -2,3 +2,13 @@
 ap_project/
 ossulloc/
 vision_task/
+basic_py/
+DL/
+ML/
+pytorch/
+.DS_Store
+.vscode/
+README.md
+hotfix.md
+LLM 이미지 생성.png
+Vision_Task/
